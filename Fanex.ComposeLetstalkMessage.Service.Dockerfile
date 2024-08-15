@@ -6,14 +6,14 @@ COPY ./Fanex.ComposeLetstalkMessage.Service/Fanex.ComposeLetstalkMessage.Service
 
 RUN ls /src -l
 WORKDIR /src/Fanex.ComposeLetstalkMessage.Service
-RUN dotnet nuget add source http://nuget.nexdev.net/api/v2
+RUN dotnet nuget add source https://nuget.nexdev.net/api/v2
 RUN dotnet restore -v n
 
 COPY ./Fanex.ComposeLetstalkMessage.Service/Fanex.ComposeLetstalkMessage.Service .
 
 RUN dotnet publish -r linux-x64 --self-contained false -c Release -o /app
 
-FROM hub.nexdev.net/rebuild-baseimage/dotnetcore/aspnet:6.0-alpine-iculibs
+FROM hub.nexdev.net/base/dotnet/core/aspnet:6.0-alpine
 
 ENV TZ="America/La_Paz" 
 
