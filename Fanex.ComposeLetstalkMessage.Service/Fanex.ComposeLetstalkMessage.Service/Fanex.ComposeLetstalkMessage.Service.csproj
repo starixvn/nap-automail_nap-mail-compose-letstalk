@@ -8,13 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="App_Data\DBWH.bodb_Notification.bodbAdminNet.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="App_Data\DBWH.bodb_Notification.bodbAdminNet.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <_ContentIncludedByDefault Remove="App_Data\DBWH.bodb_Notification.wsv_nap.xml" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,6 @@
+﻿<Functions>
+	<Function Name="Auto Mail">
+		<Setting Key="Notif_ScanSendNewNotification" SpName="Notif_ScanSendNewNotification" DbName="DBWH.bodb_Notification.wsv_nap" Timeout="0"></Setting>
+		<Setting Key="Notif_UpdateNotificationRepientStatus" SpName="Notif_UpdateNotificationRepientStatus" DbName="DBWH.bodb_Notification.wsv_nap" Timeout="0"></Setting>
+	</Function>
+</Functions>
