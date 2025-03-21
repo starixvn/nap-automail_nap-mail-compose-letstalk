@@ -1,18 +1,30 @@
 using Fanex.ComposeLetstalkMessage.Service;
+using Fanex.Data.SqlServer;
+using Fanex.Logging.Sentry.RavenClient;
+using ONEbook.UM.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddRazorPages();
-builder.Services.LoadConfig();
-builder.Services.AddFanexServices(builder.Configuration);
-builder.Services.AddSentryService();
-builder.Services.AddCoreServices();
-builder.Services.StartScheduler();
+var services = builder.Services;
+var configuration = builder.Configuration;
+services.AddControllers();
+services.AddEndpointsApiExplorer();
+services.AddRazorPages();
+services.LoadConfig();
+services.AddFanexLogSentry(configuration);
+services.AddFanexSql(configuration);
+services.AddOneBookUmForService(configuration);
+services.AddInternalServices();
+services.StartScheduler();
 
 var app = builder.Build();
 app.Map("/", () => "OK");
+
+app.UseDeveloperExceptionPage();
+app.UseSwagger();
+app.UseSwaggerUI();
+
+app.UseRouting();
+
 app.MapControllers();
-app.MapRazorPages();
-app.Run($"http://0.0.0.0:5000");
+
+await app.RunAsync();

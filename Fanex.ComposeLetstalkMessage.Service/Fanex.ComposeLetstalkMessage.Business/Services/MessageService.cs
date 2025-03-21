@@ -1,10 +1,11 @@
 ﻿using Fanex.ComposeLetstalkMessage.Business.Models;
-using Fanex.LetstalkService.Core.Models;
 using System;
 using System.Collections.Generic;
 
 namespace Fanex.ComposeLetstalkMessage.Business.Services
 {
+    using LetstalkService.Client.Models;
+
     public interface MessageService
     {
         LetstalkModel CreateLetstalkMessageModel(Recipient recipient, Message message);
