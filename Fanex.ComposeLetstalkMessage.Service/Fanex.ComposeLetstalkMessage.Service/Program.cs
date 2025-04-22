@@ -8,6 +8,7 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 services.AddControllers();
 services.AddEndpointsApiExplorer();
+services.AddSwaggerGen();
 services.AddRazorPages();
 services.LoadConfig();
 services.AddFanexLogSentry(configuration);
